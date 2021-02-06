@@ -252,6 +252,7 @@ public class CreateRequestTestcases extends BrowserConfiguration {
 		createRequest = loginpage.login(GlobalVariables.custodianEmailStaging, GlobalVariables.password);
 		if (createRequest.verifyWalkinButton()) {
 			createRequest.walkinRequest();
+			createRequest.selectStateForRequestCreation(GlobalVariables.selectState, GlobalVariables.OrganizationName);
 			requestCreated = createRequest.fillFormDetailsRequestCreation("Automation", "Test Custodian", "01011991",
 					"Medical", true, "General Release");
 		} else {
@@ -263,6 +264,7 @@ public class CreateRequestTestcases extends BrowserConfiguration {
 			loginpage.logout();
 			createRequest = loginpage.login(GlobalVariables.custodianEmailStaging, GlobalVariables.password);
 			createRequest.walkinRequest();
+			createRequest.selectStateForRequestCreation(GlobalVariables.selectState, GlobalVariables.OrganizationName);
 			requestCreated = createRequest.fillFormDetailsRequestCreation("Automation", "Test Custodian", "01011991",
 					"Medical", true, "General Release");
 
