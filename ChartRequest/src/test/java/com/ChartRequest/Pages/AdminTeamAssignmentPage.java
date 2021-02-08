@@ -104,8 +104,8 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 		adminDropDown.click();
 		wait.until(ExpectedConditions.elementToBeClickable(adminDropDownTeamAssignmentPage));
 		adminDropDownTeamAssignmentPage.click();
-		TestListener.infoMessage("Open Admin Team Assignment Page");
-		TestListener.addDynamicScreenshotInReport("OpenAdminTeamAssigmentPage");
+		//TestListener.infoMessage("Open Admin Team Assignment Page");
+		//TestListener.addDynamicScreenshotInReport("OpenAdminTeamAssigmentPage");
 		wait.until(ExpectedConditions.elementToBeClickable(buttonCreateTeam));
 	}
 	
@@ -121,13 +121,13 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 			radioButtonOrganizationTypeRequestor.click();
 		}
 		sliderIncludeTeamInProductivityReporting.click();
-		TestListener.infoMessage("Creating New Team");
-		TestListener.addDynamicScreenshotInReport("CreateNewTeam");
+		//TestListener.infoMessage("Creating New Team");
+		//TestListener.addDynamicScreenshotInReport("CreateNewTeam");
 		wait.until(ExpectedConditions.elementToBeClickable(buttonSaveTeamAssignmentPage));
 		buttonSaveTeamAssignmentPage.click();
 		driver.switchTo().alert().accept();
 		wait.until(ExpectedConditions.visibilityOf(confrimationMessage));
-		TestListener.addDynamicScreenshotInReport("CreateNewTeamSuccess");
+		//TestListener.addDynamicScreenshotInReport("CreateNewTeamSuccess");
 	}
 	
 	public void deleteTeam() {
@@ -141,10 +141,10 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 		String tempConfrimationMessage=confrimationMessage.getText();
 		if (tempConfrimationMessage.contains("Team was successfully Deleted")) {
 			System.out.println("Team Successfully Deteled");
-			TestListener.infoMessage("Team Successfully Deleted");
+			//TestListener.infoMessage("Team Successfully Deleted");
 		} else {
 			System.out.println("Team Un-Successfully Deteled");
-			TestListener.infoMessage("Team Un-Successfully Deleted");
+			//TestListener.infoMessage("Team Un-Successfully Deleted");
 
 		}
 	}
@@ -165,7 +165,7 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 		String tempGetName=getUserTopNameDropDown.getText();
 		buttonAddEditTeamMember.click();
 		System.out.println("User Name is:- "+tempGetName);
-		TestListener.infoMessage("User Name is:- "+tempGetName);
+		//TestListener.infoMessage("User Name is:- "+tempGetName);
 		System.out.println("Adding Team Member in Team");
 		driver.findElement(By.xpath("//td[contains(text(),'"+tempGetName+"')]/following-sibling::td[@class='team-leader-checkbox']/input")).click();
 		TestUtil.hardWait(5);
@@ -175,18 +175,18 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 		if (TestUtil.isElementDisplayed(teamLeaderConfrimationMessage)) {
 			if (tempMessage.contains("Team Leader is set for this team")) {
 				System.out.println("Team Leader is Set for this team");
-				TestListener.infoMessage("Team Leader is Set for this team");		
-				TestListener.addDynamicScreenshotInReport("teamLeaderAdded");
+				//TestListener.infoMessage("Team Leader is Set for this team");		
+				//TestListener.addDynamicScreenshotInReport("teamLeaderAdded");
 			} else {
 				System.out.println("Team Leader NOT Set for this team");
-				TestListener.infoMessage("Team Leader NOT Set for this team");
-				TestListener.addDynamicScreenshotInReport("teamLeaderAddedUnSuccessfully");
+				//TestListener.infoMessage("Team Leader NOT Set for this team");
+				//TestListener.addDynamicScreenshotInReport("teamLeaderAddedUnSuccessfully");
 
 			}
 		} else {
 			System.out.println("Custodian Not Added into the List");
-			TestListener.infoMessageFail("Custodian Not Added into the List");
-			TestListener.addDynamicScreenshotInReport("teamLeaderNotAdded");
+			//TestListener.infoMessageFail("Custodian Not Added into the List");
+			//TestListener.addDynamicScreenshotInReport("teamLeaderNotAdded");
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(buttonCloseAddTeamLeaderPage));
 		buttonCloseAddTeamLeaderPage.click();
@@ -225,17 +225,17 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 			String tempMessage=confrimMessageHeading.getText();
 			if (tempMessage.contains("Custodian successfully Added in team")) {
 				System.out.println("Custodian Added Successfully");
-				TestListener.infoMessage("Custodian Added Successfully");
-				TestListener.addDynamicScreenshotInReport("CustodianAdded");
+				//TestListener.infoMessage("Custodian Added Successfully");
+				//TestListener.addDynamicScreenshotInReport("CustodianAdded");
 			} else {
 				System.out.println("Custodian NOT-Added Successfully");
-				TestListener.infoMessage("Custodian NOT-Added Successfully");
-				TestListener.addDynamicScreenshotInReport("CustodianAddedUnSuccessfully");
+				//TestListener.infoMessage("Custodian NOT-Added Successfully");
+				//TestListener.addDynamicScreenshotInReport("CustodianAddedUnSuccessfully");
 			}
 		} else {
 			System.out.println("Custodian Not Added into the List");
-			TestListener.infoMessageFail("Custodian Not Added into the List");
-			TestListener.addDynamicScreenshotInReport("CustodianNotAdded");
+			//TestListener.infoMessageFail("Custodian Not Added into the List");
+			//TestListener.addDynamicScreenshotInReport("CustodianNotAdded");
 		}*/
 		wait.until(ExpectedConditions.elementToBeClickable(buttonCloseAddTeamLeaderPage));
 		buttonCloseAddTeamLeaderPage.click();
@@ -251,15 +251,16 @@ public class AdminTeamAssignmentPage extends BrowserConfiguration{
 		boolean flag=false;
 		TestUtil.hardWait(3);
 		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[normalize-space()='"+teamName+"']"))));
-		boolean status=TestUtil.isElementDisplayed(driver.findElement(By.xpath("//td[normalize-space()='"+teamName+"']")));
+		WebElement tempWebElement=driver.findElement(By.xpath("//td[normalize-space()='"+teamName+"']"));
+		boolean status=TestUtil.isElementDisplayed(tempWebElement);
 		if (status) {
 			System.out.println("Team is Already Created "+teamName);
-			TestListener.infoMessage("Team is Created "+teamName);
+			//TestListener.infoMessage("Team is Already Created "+teamName);
 			flag=true;
 		}
 		else {
 			System.out.println("Team is NOT-Created "+teamName);
-			TestListener.infoMessageFail("Team is NOT-Created "+teamName);			
+			//TestListener.infoMessageFail("Team is NOT-Created "+teamName);			
 			flag=false;
 		}
 		System.out.println("Status of Flag:- "+flag);

@@ -3,7 +3,6 @@ package com.ChartRequest.Pages;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.math3.analysis.function.Exp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -15,7 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import com.ChartRequest.Browser.BrowserConfiguration;
 import com.ChartRequest.Reports.TestListener;
@@ -1185,71 +1183,71 @@ public class CreateRequest extends BrowserConfiguration {
 			}
 			TestUtil.hardWait(5);
 		}
-		if (SubmitToQA) {
-			buttonSubmitToQA.click();
-			wait.until(ExpectedConditions.elementToBeClickable(buttonPerformQANow));
-			buttonPerformQANow.click();
-			TestUtil.hardWait(5);
-			// wait.until(ExpectedConditions.visibilityOf(element))
-			int noOfFiles = driver
-					.findElements(By
-							.xpath("//h4[contains(text(),'Authorization Documents')]/following::a[@class='auth-file']"))
-					.size();
-			System.out.println("No of File Size:- "+noOfFiles);
-			for (int i = 1; i <= noOfFiles; i++) {
-				driver.findElement(By.xpath(
-						"//h4[contains(text(),'Authorization Documents')]/following::a[@class='auth-file'][" + i + "]"))
-						.click();
+			if (SubmitToQA) {
+				buttonSubmitToQA.click();
+				wait.until(ExpectedConditions.elementToBeClickable(buttonPerformQANow));
+				buttonPerformQANow.click();
 				TestUtil.hardWait(5);
-				if (TestUtil.isElementDisplayed(labelAuthorizationQAChecklistHeading)) {
-					/*checkBoxAuthorizationCompliant.click();
-					checkBoxPatientNameVerifiedAndMatches.click();
-					checkBoxAuthorizationisSigned.click();*/
-					js.executeScript("arguments[0].click();", checkBoxAuthorizationCompliant);
-					js.executeScript("arguments[0].click();", checkBoxPatientNameVerifiedAndMatches);
-					js.executeScript("arguments[0].click();", checkBoxAuthorizationisSigned);
+				// wait.until(ExpectedConditions.visibilityOf(element))
+				int noOfFiles = driver
+						.findElements(By
+								.xpath("//h4[contains(text(),'Authorization Documents')]/following::a[@class='auth-file']"))
+						.size();
+				System.out.println("No of File Size:- "+noOfFiles);
+				for (int i = 1; i <= noOfFiles; i++) {
+					driver.findElement(By.xpath(
+							"//h4[contains(text(),'Authorization Documents')]/following::a[@class='auth-file'][" + i + "]"))
+							.click();
+					TestUtil.hardWait(5);
+					if (TestUtil.isElementDisplayed(labelAuthorizationQAChecklistHeading)) {
+						/*checkBoxAuthorizationCompliant.click();
+						checkBoxPatientNameVerifiedAndMatches.click();
+						checkBoxAuthorizationisSigned.click();*/
+						js.executeScript("arguments[0].click();", checkBoxAuthorizationCompliant);
+						js.executeScript("arguments[0].click();", checkBoxPatientNameVerifiedAndMatches);
+						js.executeScript("arguments[0].click();", checkBoxAuthorizationisSigned);
+					}
 				}
-			}
-			buttonApprove.click();
-
-			// Medical records
-
-			int noOfFilesMedical = driver
-					.findElements(
-							By.xpath("//h4[contains(text(),'Medical Records')]/following::a[@class='record-file']"))
-					.size();
-			System.out.println("No of File Medical Size:- "+noOfFilesMedical);
-			for (int i = 1; i <= noOfFilesMedical; i++) {
-				driver.findElement(By.xpath(
-						"//h4[contains(text(),'Medical Records')]/following::a[@class='record-file'][" + i + "]"))
-						.click();
-				TestUtil.hardWait(5);
-				if (TestUtil.isElementDisplayed(labelRecordsQAChecklistHeading)) {
-					wait.until(ExpectedConditions.elementToBeClickable(checkBoxPatientNameVerifiedAndMatchesMedical));
-					/*checkBoxPatientNameVerifiedAndMatchesMedical.click();
-					checkBoxDatesofServiceRequestedVerifiedAndMatch.click();
-					checkBoxRecordCertificationUploaded.click();*/
-					js.executeScript("arguments[0].click();", checkBoxPatientNameVerifiedAndMatchesMedical);
-					js.executeScript("arguments[0].click();", checkBoxDatesofServiceRequestedVerifiedAndMatch);
-					js.executeScript("arguments[0].click();", checkBoxRecordCertificationUploaded);
+				buttonApprove.click();
+	
+				// Medical records
+	
+				int noOfFilesMedical = driver
+						.findElements(
+								By.xpath("//h4[contains(text(),'Medical Records')]/following::a[@class='record-file']"))
+						.size();
+				System.out.println("No of File Medical Size:- "+noOfFilesMedical);
+				for (int i = 1; i <= noOfFilesMedical; i++) {
+					driver.findElement(By.xpath(
+							"//h4[contains(text(),'Medical Records')]/following::a[@class='record-file'][" + i + "]"))
+							.click();
+					TestUtil.hardWait(5);
+					if (TestUtil.isElementDisplayed(labelRecordsQAChecklistHeading)) {
+						wait.until(ExpectedConditions.elementToBeClickable(checkBoxPatientNameVerifiedAndMatchesMedical));
+						/*checkBoxPatientNameVerifiedAndMatchesMedical.click();
+						checkBoxDatesofServiceRequestedVerifiedAndMatch.click();
+						checkBoxRecordCertificationUploaded.click();*/
+						js.executeScript("arguments[0].click();", checkBoxPatientNameVerifiedAndMatchesMedical);
+						js.executeScript("arguments[0].click();", checkBoxDatesofServiceRequestedVerifiedAndMatch);
+						js.executeScript("arguments[0].click();", checkBoxRecordCertificationUploaded);
+					}
 				}
-			}
-			wait.until(ExpectedConditions.elementToBeClickable(buttonApproveMedical));
-
-			buttonApproveMedical.click();
-			wait.until(ExpectedConditions.elementToBeClickable(buttonReleaseRecords));
-
-			/*
-			 * actions.moveToElement(buttonReleaseRecords);
-			 * actions.click().build().perform();
-			 */
-
-			if (TestUtil.isElementDisplayed(buttonReleaseRecords)) {
-				buttonReleaseRecords.click();
-				dropDownReleaseNowRecords.click();
-			}
-
-		} else {
+				wait.until(ExpectedConditions.elementToBeClickable(buttonApproveMedical));
+	
+				buttonApproveMedical.click();
+				wait.until(ExpectedConditions.elementToBeClickable(buttonReleaseRecords));
+	
+				/*
+				 * actions.moveToElement(buttonReleaseRecords);
+				 * actions.click().build().perform();
+				 */
+	
+				if (TestUtil.isElementDisplayed(buttonReleaseRecords)) {
+					buttonReleaseRecords.click();
+					dropDownReleaseNowRecords.click();
+				}
+	
+			} else {
 			TestUtil.hardWait(5);
 			js.executeScript("arguments[0].click();", buttonSubmitToRequestor);
 			TestUtil.hardWait(10);

@@ -24,7 +24,6 @@ public class AdminPermissionPageTestcases extends BrowserConfiguration {
 	SearchMyRequest searchMyRequest;
 	CustodianStatement_Old custodianStatement;
 	AdminSearchPage adminSearchPage;
-
 	String url;
 
 	@BeforeMethod()
