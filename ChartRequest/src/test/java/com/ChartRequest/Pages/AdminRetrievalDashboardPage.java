@@ -140,7 +140,7 @@ public class AdminRetrievalDashboardPage extends BrowserConfiguration {
 		tempRequestNumber = getRequestNumber.getText();
 		System.out.println("Request Number is "+tempRequestNumber);
 		String valueOfLastRetrievalEffortString = valueOfLastRetrievalEffort.getText();
-		if (valueOfLastRetrievalEffortString.isBlank() || valueOfLastRetrievalEffortString.contains(" ")) {
+		if (valueOfLastRetrievalEffortString.contains(" ")) {
 			System.out.println("No Last Retrieval Effort is added yet on New tab");
 		} else {
 			System.out.println("Last Retrieval Effort is added Already on New tab " + valueOfLastRetrievalEffortString);
@@ -180,7 +180,7 @@ public class AdminRetrievalDashboardPage extends BrowserConfiguration {
 		String valueOfLastRetrievalEffortString = driver
 				.findElement(By.xpath("//a[normalize-space()='" + tempRequestNumber + "']/following::tr[1]/td[9]"))
 				.getText();
-		if (valueOfLastRetrievalEffortString.isBlank() || valueOfLastRetrievalEffortString.contains(" ")) {
+		if (valueOfLastRetrievalEffortString.contains(" ")) {
 			System.out.println("No Last Retrieval Effort is added yet on Followup tab");
 		} else {
 			System.out.println("Last Retrieval Effort is added Already on Followup tab " + valueOfLastRetrievalEffortString);
@@ -221,7 +221,7 @@ public class AdminRetrievalDashboardPage extends BrowserConfiguration {
 		tempRequestNumber = getRequestNumber.getText();
 		System.out.println("Request Number is "+tempRequestNumber);
 		String valueOfLastRetrievalEffortString = valueOfLastRetrievalEffort.getText();
-		if (valueOfLastRetrievalEffortString.isBlank() || valueOfLastRetrievalEffortString.contains(" ")) {
+		if (valueOfLastRetrievalEffortString.contains(" ")) {
 			System.out.println("No Last Retrieval Effort is added yet on QA tab");
 		} else {
 			System.out.println("Last Retrieval Effort is added Already on QA tab " + valueOfLastRetrievalEffortString);
