@@ -159,7 +159,7 @@ public class AdminRetrievalDashboardPage extends BrowserConfiguration {
 		String valueOfNewLastRetrievalEffortString = driver
 				.findElement(By.xpath("//a[normalize-space()='" + tempRequestNumber + "']/following::tr[1]/td[9]"))
 				.getText();
-		if (valueOfNewLastRetrievalEffortString.isBlank() || valueOfNewLastRetrievalEffortString.contains(" ")) {
+		if (valueOfNewLastRetrievalEffortString.contains(" ")) {
 			System.out.println("No Last Retrieval Effort is added yet");
 		} else {
 			System.out.println("Last Retrieval Effort is added Already " + valueOfNewLastRetrievalEffortString);
@@ -200,7 +200,7 @@ public class AdminRetrievalDashboardPage extends BrowserConfiguration {
 		String valueOfNewLastRetrievalEffortString = driver
 				.findElement(By.xpath("//a[normalize-space()='" + tempRequestNumber + "']/following::tr[1]/td[9]"))
 				.getText();
-		if (valueOfNewLastRetrievalEffortString.isBlank() || valueOfNewLastRetrievalEffortString.contains(" ")) {
+		if (valueOfNewLastRetrievalEffortString.contains(" ")) {
 			System.out.println("No Last Retrieval Effort is added yet");
 		} else {
 			System.out.println("Last Retrieval Effort is added Already " + valueOfNewLastRetrievalEffortString);
