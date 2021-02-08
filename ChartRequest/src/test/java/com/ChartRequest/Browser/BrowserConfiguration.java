@@ -34,11 +34,11 @@ public class BrowserConfiguration {
 	}
 
 	public void browserTearUp(String URL) {
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions options=new ChromeOptions();
-		options.addArguments("--disable-geolocation");
-		//System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/src/test/resources/DriversExe/chromedriver.exe");
-		driver = new ChromeDriver(options);
+		//WebDriverManager.chromedriver().setup();
+		/*ChromeOptions options=new ChromeOptions();
+		options.addArguments("--disable-geolocation");*/
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "/src/test/resources/DriversExe/chromedriver_binary");
+		driver = new ChromeDriver();
 		//driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
