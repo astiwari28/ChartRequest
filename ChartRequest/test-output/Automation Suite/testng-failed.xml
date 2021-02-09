@@ -6,13 +6,25 @@
   </listeners>
   <test thread-count="2" name="Chart request(failed)">
     <classes>
-      <class name="com.ChartRequest.TestCases.CreateRequestTestcases">
+      <class name="com.ChartRequest.TestCases.LoginPageTestcase">
         <methods>
-          <include name="openbrowser"/>
-          <include name="WalkinRequestCustodian"/>
+          <include name="loginWhenNoEmailNoPassword"/>
+          <include name="loginWhenOnlyEmailId"/>
+          <include name="RemeberMeOnLoginPage"/>
+          <include name="GethelpaccessingyouraccountOnLoginPage"/>
+          <include name="homeButtonOnLoginPage"/>
+          <include name="aboutButtonOnLoginPage"/>
+          <include name="signUpButtonOnLoginPage"/>
           <include name="browserTearDown"/>
+          <include name="FAQOnLoginPage"/>
+          <include name="openbrowser"/>
+          <include name="ForgotPasswordWrongEmailOnLoginPage"/>
+          <include name="benefitsButtonOnLoginPage"/>
+          <include name="verifyTitle"/>
+          <include name="ForgotPasswordOnLoginPage"/>
+          <include name="requestDemoOnLoginPage"/>
         </methods>
-      </class> <!-- com.ChartRequest.TestCases.CreateRequestTestcases -->
+      </class> <!-- com.ChartRequest.TestCases.LoginPageTestcase -->
     </classes>
   </test> <!-- Chart request(failed) -->
 </suite> <!-- Failed suite [Automation Suite] -->
