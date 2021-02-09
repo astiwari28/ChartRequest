@@ -443,7 +443,7 @@ public class CreateRequestTestcases extends BrowserConfiguration {
 		}
 	}
 	
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void browserTearDown() {
 		driver.quit();	
 	}

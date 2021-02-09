@@ -320,7 +320,7 @@ public class ExecutivePageTestCases extends BrowserConfiguration {
 	}
 	
 	
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void browserTearDown() {
 		driver.quit();
 	}

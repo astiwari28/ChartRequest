@@ -63,4 +63,5 @@ public class BrowserConfiguration {
 	public void browserTearDown() {
 		driver.quit();
 	}
+	
 }
