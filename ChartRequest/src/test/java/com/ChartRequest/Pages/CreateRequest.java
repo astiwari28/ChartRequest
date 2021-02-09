@@ -800,7 +800,7 @@ public class CreateRequest extends BrowserConfiguration {
 
 	public void createNewRequest() {
 		makeaNewRequestForRecords.click();
-		TestListener.infoMessage("Click on Create New Request Button");
+		//TestListener.infoMessage("Click on Create New Request Button");
 	}
 
 	public void abandonRequest() {
@@ -810,11 +810,11 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.visibilityOf(errorMessage));
 		boolean status = TestUtil.isElementDisplayed(errorMessage);
 		if (status) {
-			TestListener.infoMessage("Request get Abandoned");
+			//TestListener.infoMessage("Request get Abandoned");
 			Assert.assertTrue(errorMessage.getText().contains("has been abandoned"), "Request Get Abandoned");
 		} else {
 			Assert.assertFalse(errorMessage.getText().contains("has been abandoned"), "Request Not Get Abandoned");
-			TestListener.infoMessageFail("Request get Failed Abandoned");
+			//TestListener.infoMessageFail("Request get Failed Abandoned");
 		}
 	}
 
@@ -828,15 +828,15 @@ public class CreateRequest extends BrowserConfiguration {
 				.click();
 		inputProviderName.sendKeys(ProviderName);
 		buttonSearch.click();
-		TestListener.infoMessage("State Name For Creating Request "+State+" ProviderName Found is "+ProviderName);
+		//TestListener.infoMessage("State Name For Creating Request "+State+" ProviderName Found is "+ProviderName);
 		if (TestUtil.isElementDisplayed(searchRequestorNameButton)) {
 			wait.until(ExpectedConditions.elementToBeClickable(searchRequestorNameButton));
 			searchRequestorNameButton.click();
-			TestListener.infoMessage(ProviderName+" Name Found");
+			//TestListener.infoMessage(ProviderName+" Name Found");
 		} else {
 			wait.until(ExpectedConditions.elementToBeClickable(buttonSelectBulkUpload));
 			buttonSelectBulkUpload.click();
-			TestListener.infoMessage(ProviderName+" Name Found");
+			//TestListener.infoMessage(ProviderName+" Name Found");
 		}
 	}
 
@@ -851,13 +851,13 @@ public class CreateRequest extends BrowserConfiguration {
 		TestUtil.hardWait(5);
 		String userName = nameoFtheUser.getText();
 		requestNo = getRequestNo();
-		TestListener.infoMessage("Request number is: "+requestNo);
+		//TestListener.infoMessage("Request number is: "+requestNo);
 		inputFirstNamePatientName.sendKeys(firstName);
-		TestListener.infoMessage("First Name is: "+firstName);
+		//TestListener.infoMessage("First Name is: "+firstName);
 		inputLastNamePatientName.sendKeys(lastName);
-		TestListener.infoMessage("Last Name is: "+lastName);
+		//TestListener.infoMessage("Last Name is: "+lastName);
 		inputDateofBirthPatient.sendKeys(dateofbirth);
-		TestListener.infoMessage("Date of Birth is: "+dateofbirth);
+		//TestListener.infoMessage("Date of Birth is: "+dateofbirth);
 		inputDateofBirthPatient.sendKeys(Keys.ENTER);
 		inputRecordsType.click();
 		driver.findElement(By.xpath("//li[contains(text(),'Medical')]")).click();
@@ -890,11 +890,11 @@ public class CreateRequest extends BrowserConfiguration {
 			inputRecipientNameFax.sendKeys("Automation");
 			selectRecipientType("Health Care Provider");
 		}
-		TestListener.addDynamicScreenshotInReport("changeModeOfPayment");
+		//TestListener.addDynamicScreenshotInReport("changeModeOfPayment");
 		// Select Authorization
 		if (authorizationType.contains("Patient eAuthorize")) {
 			selectAuthorizationType(authorizationType);
-			TestListener.infoMessage("Type of Authorization is: "+authorizationType);
+			//TestListener.infoMessage("Type of Authorization is: "+authorizationType);
 			js.executeScript("arguments[0].click();", buttonAdoptAndSign);
 			wait.until(ExpectedConditions.visibilityOf(headingAdoptYourSignature));
 			// dsfsd
@@ -921,7 +921,7 @@ public class CreateRequest extends BrowserConfiguration {
 			js.executeScript("arguments[0].click();", buttonUploadAuthorization);
 			TestUtil.hardWait(5);
 		}
-		TestListener.addDynamicScreenshotInReport("creatingNewRequest");
+		//TestListener.addDynamicScreenshotInReport("creatingNewRequest");
 		if (TestUtil.isElementDisplayed(buttonSubmitCustodian)) {
 			buttonSubmitCustodian.click();
 		} else {
@@ -978,8 +978,8 @@ public class CreateRequest extends BrowserConfiguration {
 					selectCreditCardMonth(ccMonth);
 					selectCreditCardYear(ccYear);
 					addCreditCard.click();
-					TestListener.infoMessage("Adding the Credit Card");
-					TestListener.addDynamicScreenshotInReport("addCreditCardAdding");
+					//TestListener.infoMessage("Adding the Credit Card");
+					//TestListener.addDynamicScreenshotInReport("addCreditCardAdding");
 					// js.executeScript("arguments[0].click();", addCreditCard);
 					TestUtil.hardWait(10);
 					wait.until(ExpectedConditions.elementToBeClickable(deleteSavedCards));
@@ -987,9 +987,9 @@ public class CreateRequest extends BrowserConfiguration {
 					js.executeScript("arguments[0].click();", deleteSavedCards);
 					TestUtil.hardWait(5);
 					//wait.until(ExpectedConditions.alertIsPresent());
-					TestListener.infoMessage("Delete the Credit Card");
+					//TestListener.infoMessage("Delete the Credit Card");
 					driver.switchTo().alert().accept();
-					TestListener.addDynamicScreenshotInReport("addCreditCardDelete");
+					//TestListener.addDynamicScreenshotInReport("addCreditCardDelete");
 					TestUtil.hardWait(5);
 					//wait.until(ExpectedConditions.elementToBeClickable(masterCard));
 					TestUtil.isClickable(masterCard);
@@ -1023,14 +1023,14 @@ public class CreateRequest extends BrowserConfiguration {
 	}
 
 	public String getTypeOfRequest() {
-		TestListener.infoMessage("Type of Request is: "+typeofRequest.getText());
+		//TestListener.infoMessage("Type of Request is: "+typeofRequest.getText());
 		return typeofRequest.getText();
 	}
 
 	public void saveRequestIntoDraft() {
 		String requestNo = getRequestNo();
 		buttonSaveAsDraft.click();
-		TestListener.infoMessage("Clicked on Draft Button");
+		//TestListener.infoMessage("Clicked on Draft Button");
 		buttonRequestOnTop.click();
 		wait.until(ExpectedConditions.visibilityOf(buttonSearchMyRequests));
 		buttonSearchMyRequests.click();
@@ -1068,7 +1068,7 @@ public class CreateRequest extends BrowserConfiguration {
 			int elemetNo = noOfRows - 1;
 			RequestID = driver.findElement(By.xpath("//tr[" + elemetNo + "]/td[3]/a")).getText();
 		}
-		TestListener.infoMessage("Request Id is:- "+RequestID);
+		//TestListener.infoMessage("Request Id is:- "+RequestID);
 		System.out.println("Request Id is:- "+RequestID);
 		return RequestID;
 	}
@@ -1305,7 +1305,7 @@ public class CreateRequest extends BrowserConfiguration {
 		buttonEditGeneralSettings.click();
 		wait.until(ExpectedConditions.elementToBeClickable(checkboxEnableBulkUpload));
 		checkboxEnableBulkUpload.click();
-		TestListener.infoMessage("Enable Bulk File Button");
+		//TestListener.infoMessage("Enable Bulk File Button");
 		buttonUpdateCustodian.click();
 		wait.until(ExpectedConditions.visibilityOf(confrimationMessage));
 	}
@@ -1315,7 +1315,7 @@ public class CreateRequest extends BrowserConfiguration {
 		createBulkRequest.click();
 		wait.until(ExpectedConditions.elementToBeClickable(buttonStartBulkUpload));
 		buttonStartBulkUpload.click();
-		TestListener.infoMessage("Bulk File Upload Process Start");
+		//TestListener.infoMessage("Bulk File Upload Process Start");
 	}
 
 	public void uploadBulkUploadFile() {
@@ -1350,7 +1350,7 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.visibilityOf(buttonViewPenidngRequests));
 		buttonViewPenidngRequests.click();
 		wait.until(ExpectedConditions.elementToBeClickable(makeaNewRequestForRecords));
-		TestListener.infoMessage("Bulk File Proceess Completed");
+		//TestListener.infoMessage("Bulk File Proceess Completed");
 	}
 
 	public void walkinRequest() {
@@ -1420,12 +1420,12 @@ public class CreateRequest extends BrowserConfiguration {
 			wait.until(ExpectedConditions.visibilityOf(lastChartMessage));
 			String excepted = lastChartMessage.getText();
 			System.out.println("Actual Chat Message is From Custodian: " + excepted);
-			TestListener.infoMessage("Actual Chat Message is From Custodian: " + excepted);
+			//TestListener.infoMessage("Actual Chat Message is From Custodian: " + excepted);
 		} else {
 			wait.until(ExpectedConditions.visibilityOf(lastChartMessageCustodian));
 			String excepted = lastChartMessageCustodian.getText();
 			System.out.println("Actual Chat Message is From Custodian: " + excepted);
-			TestListener.infoMessage("Actual Chat Message is From Custodian: " + excepted);
+			//TestListener.infoMessage("Actual Chat Message is From Custodian: " + excepted);
 		}
 
 		/*
@@ -1497,10 +1497,10 @@ public class CreateRequest extends BrowserConfiguration {
 		String expectedMessage = "Request " + RequestID + " has been incompleted because Revisit Minimum Necessary.";
 		if (actualMessage.contains(expectedMessage)) {
 			System.out.println(RequestID + " complete as Mark as Incomplete");
-			TestListener.infoMessage(RequestID+" complete as Mark as Incomplete");
+			//TestListener.infoMessage(RequestID+" complete as Mark as Incomplete");
 		} else {
 			System.out.println(RequestID + " Not complete as Mark as Incomplete");
-			TestListener.infoMessageFail(RequestID+" Not complete as Mark as Incomplete");
+			//TestListener.infoMessageFail(RequestID+" Not complete as Mark as Incomplete");
 		}
 	}
 
@@ -1521,10 +1521,10 @@ public class CreateRequest extends BrowserConfiguration {
 				String expectedMessage = "This request has been locked until further notice. Reason: Automation Testing";
 				if (actualMessage.contains(expectedMessage)) {
 					System.out.println(RequestID + " getting locked");
-					TestListener.infoMessage(RequestID+" getting locked");
+					//TestListener.infoMessage(RequestID+" getting locked");
 				} else {
 					System.out.println(RequestID + " not getting locked");
-					TestListener.infoMessageFail(RequestID+" not getting locked");
+					//TestListener.infoMessageFail(RequestID+" not getting locked");
 				}
 			} else {
 				wait.until(ExpectedConditions.elementToBeClickable(buttonUnlock));
@@ -1535,10 +1535,10 @@ public class CreateRequest extends BrowserConfiguration {
 				String expectedMessage = "This request has been unlocked";
 				if (actualMessage.contains(expectedMessage)) {
 					System.out.println(RequestID + " getting unlocked");
-					TestListener.infoMessage(RequestID+" getting unlocked");
+					//TestListener.infoMessage(RequestID+" getting unlocked");
 				} else {
 					System.out.println(RequestID + " not getting unlocked");
-					TestListener.infoMessageFail(RequestID+" not getting unlocked");
+					//TestListener.infoMessageFail(RequestID+" not getting unlocked");
 				}
 			}
 		} catch (Exception e) {
@@ -1556,10 +1556,10 @@ public class CreateRequest extends BrowserConfiguration {
 		String expectedMessage = "Request " + RequestID + " reopened.";
 		if (actualMessage.contains(expectedMessage)) {
 			System.out.println(RequestID + " is Re-opened");
-			TestListener.infoMessage(RequestID+" is Re-opened");
+			//TestListener.infoMessage(RequestID+" is Re-opened");
 		} else {
 			System.out.println(RequestID + " not Re-opened");
-			TestListener.infoMessageFail(RequestID+" not Re-opened");
+			//TestListener.infoMessageFail(RequestID+" not Re-opened");
 		}
 	}
 
@@ -1614,18 +1614,18 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.elementToBeClickable(inputChartMessgaeInternal));
 		if (message == null) {
 			System.out.println("No Need to Send Message");
-			TestListener.infoMessage("No Need to Send Message");
+			//TestListener.infoMessage("No Need to Send Message");
 		} else {
 			if (wantToSendMessagePublicliy) {
 				tabPublicReplyCustodian.click();
-				TestListener.infoMessage("Selected The Public Reply tab");
+				//TestListener.infoMessage("Selected The Public Reply tab");
 				wait.until(ExpectedConditions.elementToBeClickable(inputChartMessage));
 				inputChartMessage.sendKeys(message);
-				TestListener.infoMessage("Entering The Message "+message);
+				//TestListener.infoMessage("Entering The Message "+message);
 				buttonSendChat.click();
 			} else {
 				System.out.println("Im at Internal Note");
-				TestListener.infoMessage("Internal Note Tab is Selected");
+				//TestListener.infoMessage("Internal Note Tab is Selected");
 
 			}
 		}
@@ -1659,7 +1659,7 @@ public class CreateRequest extends BrowserConfiguration {
 		}
 		buttonUpdateService.click();
 		wait.until(ExpectedConditions.visibilityOf(confrimationMessage));
-		TestListener.addDynamicScreenshotInReport("changeTheService");
+		//TestListener.addDynamicScreenshotInReport("changeTheService");
 	}
 	
 	public String createRequestFromCareCordination(String CustodianName) {
@@ -1673,7 +1673,7 @@ public class CreateRequest extends BrowserConfiguration {
 		String tempNo=TestUtil.getAlphaDynamicString(5);
 		inputCareCoordinationPatientLastName.sendKeys("Testing "+tempNo);
 		System.out.println("Patient Name is "+"Automation Testing "+tempNo);
-		TestListener.infoMessage("Patient Name is "+"Automation Testing "+tempNo);
+		//TestListener.infoMessage("Patient Name is "+"Automation Testing "+tempNo);
 		buttonNextMoveToDateOfBirth.click();
 		wait.until(ExpectedConditions.visibilityOf(inputCareCoordinationPatientDateOfBirth));
 		inputCareCoordinationPatientDateOfBirth.sendKeys("01011991");
@@ -1732,8 +1732,8 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.visibilityOf(requestIdCareCoordination));
 		requestId=requestIdCareCoordination.getText();
 		System.out.println("Care Coordination Request Id:- "+requestId);
-		TestListener.infoMessage("Care Coordination Request Id:- "+requestId);
-		TestListener.addDynamicScreenshotInReport("createRequestFromCareCordination");
+		//TestListener.infoMessage("Care Coordination Request Id:- "+requestId);
+		//TestListener.addDynamicScreenshotInReport("createRequestFromCareCordination");
 		return requestId;
 	}
 	
@@ -1741,8 +1741,8 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.visibilityOf(tabRequest));
 		buttonCareCoordination.click();
 		TestUtil.swtichTab(1);
-		TestListener.infoMessage("Opening Care Coordination");
-		TestListener.addDynamicScreenshotInReport("openCareCoordination");
+		//TestListener.infoMessage("Opening Care Coordination");
+		//TestListener.addDynamicScreenshotInReport("openCareCoordination");
 	}
 	
 	public String openLastRequest() {
@@ -1767,7 +1767,7 @@ public class CreateRequest extends BrowserConfiguration {
 		selectRequestAfterSearch.click();
 		wait.until(ExpectedConditions.elementToBeClickable(buttonDoneTryOurAdvanceSearch));
 		buttonDoneTryOurAdvanceSearch.click();
-		TestListener.addDynamicScreenshotInReport("searchCustodianCareCoordination");
+		//TestListener.addDynamicScreenshotInReport("searchCustodianCareCoordination");
 	}
 	
 	public void processingofCareCoordinateRequest() {
@@ -1808,7 +1808,7 @@ public class CreateRequest extends BrowserConfiguration {
 
 			wait.until(ExpectedConditions.elementToBeClickable(buttonSubmitRequestorFinalCareCoordination));
 			buttonSubmitRequestorFinalCareCoordination.click();*/
-			TestListener.addDynamicScreenshotInReport("processingofCareCoordinateRequest");
+			//TestListener.addDynamicScreenshotInReport("processingofCareCoordinateRequest");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1821,7 +1821,7 @@ public class CreateRequest extends BrowserConfiguration {
 		buttonStart.click();
 		wait.until(ExpectedConditions.elementToBeClickable(inputRequestorNameWalkin));
 		inputRequestorNameWalkin.sendKeys(RequestorName);
-		TestListener.infoMessage("Requestor Name is :- "+RequestorName);
+		//TestListener.infoMessage("Requestor Name is :- "+RequestorName);
 		String tempURL=driver.getCurrentUrl();
 		if (tempURL.contains("preproduction")) {
 			driver.findElement(By.xpath("//a[normalize-space()='Show Frequent Requestor(s)']")).click();
@@ -1838,16 +1838,16 @@ public class CreateRequest extends BrowserConfiguration {
 		buttonSelectSearchRequestor.click();
 		wait.until(ExpectedConditions.elementToBeClickable(buttonNext));
 		buttonNext.click();
-		TestListener.addDynamicScreenshotInReport("screenShotName1");
+		//TestListener.addDynamicScreenshotInReport("screenShotName1");
 		wait.until(ExpectedConditions.elementToBeClickable(inputFirstNameWalkin));
 		inputFirstNameWalkin.sendKeys(TestUtil.getAlphaDynamicString(5));
 		String tempNo=TestUtil.getRandomNumericString(2);
 		inputLastNameWalkin.sendKeys(TestUtil.getAlphaDynamicString(5));
-		TestListener.addDynamicScreenshotInReport("screenShotName2");
+		//TestListener.addDynamicScreenshotInReport("screenShotName2");
 		buttonNextAtPatientDetailsWalkin.click();
 		wait.until(ExpectedConditions.elementToBeClickable(inputDateOfBirthWalkin));
 		inputDateOfBirthWalkin.sendKeys("01011991");
-		TestListener.infoMessage("Date of Birth is :- 01011991");
+		//TestListener.infoMessage("Date of Birth is :- 01011991");
 		inputDateOfBirthWalkin.sendKeys(Keys.ENTER);
 		buttonNextAtDateOfBirthWalkin.click();
 		wait.until(ExpectedConditions.elementToBeClickable(buttonNextAtSSNWalkin));
@@ -1874,7 +1874,7 @@ public class CreateRequest extends BrowserConfiguration {
 		wait.until(ExpectedConditions.visibilityOf(headingOfRecordToBeDelivered));
 		String gettingHeadingText=headingOfRecordToBeDelivered.getText();
 		System.out.println("Heading is:- "+gettingHeadingText);
-		TestListener.addDynamicScreenshotInReport("screenShotName3");
+		//TestListener.addDynamicScreenshotInReport("screenShotName3");
 		/*if (gettingHeadingText.contains("How do you want your records to be delivered")) {
 			wait.until(ExpectedConditions.elementToBeClickable(buttonInstantDownload));
 			buttonInstantDownload.click();
@@ -1902,7 +1902,7 @@ public class CreateRequest extends BrowserConfiguration {
 		//driver.findElement(By.xpath("//ul[@id='select-options-7674c427-5ec6-48e7-9742-284a81e1f95d']/li/span[contains(text(),'  Law Firm - Defense')]")).click();
 		//selectRecipientTypeWalkinCareCoordination("Law Firm - Defense");
 		requestTypeFromDropDownWalkin.click();
-		TestListener.addDynamicScreenshotInReport("screenShotName4");
+		//TestListener.addDynamicScreenshotInReport("screenShotName4");
 
 
 		
@@ -1940,7 +1940,7 @@ public class CreateRequest extends BrowserConfiguration {
 			e.printStackTrace();
 		}
 		TestUtil.hardWait(5);
-		TestListener.addDynamicScreenshotInReport("screenShotName5");
+		//TestListener.addDynamicScreenshotInReport("screenShotName5");
 		wait.until(ExpectedConditions.elementToBeClickable(buttonReviewRequest));
 		buttonReviewRequest.click();
 		if (EditInRequest) {
@@ -1953,11 +1953,11 @@ public class CreateRequest extends BrowserConfiguration {
 			System.out.println("Patient Name is "+"Automation Testing "+newTempNo);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonSaveNewDetails));
 			buttonSaveNewDetails.click();
-			TestListener.addDynamicScreenshotInReport("screenShotName6");
+			//TestListener.addDynamicScreenshotInReport("screenShotName6");
 		}
 		wait.until(ExpectedConditions.elementToBeClickable(buttonSubmitRequestWalkin));
 		buttonSubmitRequestWalkin.click();
-		TestListener.addDynamicScreenshotInReport("screenShotName7");
+		//TestListener.addDynamicScreenshotInReport("screenShotName7");
 	}
 	
 	public void selectRecipientTypeWalkinCareCoordination(String ReceipientType) {
@@ -1981,40 +1981,40 @@ public class CreateRequest extends BrowserConfiguration {
 		TestUtil.scrollToElement(labelEnableCareCoordination);
 		boolean statusOfEnableCareCoordination=labelEnableCareCoordination.isSelected();
 		System.out.println("Status of Care-Coordination "+statusOfEnableCareCoordination);
-		TestListener.infoMessage("Status of Care-Coordination "+statusOfEnableCareCoordination);
+		//TestListener.infoMessage("Status of Care-Coordination "+statusOfEnableCareCoordination);
 		boolean statusOfEnableReferralManagement=labelEnableReferralManagement.isSelected();
 		System.out.println("Status of Referral Management "+statusOfEnableReferralManagement);
-		TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
+		//TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
 		if (statusOfEnableCareCoordination) {
 			System.out.println("Care Coordination is Already Selected");
-			TestListener.infoMessage("Care Coordination is Already Selected");
+			//TestListener.infoMessage("Care Coordination is Already Selected");
 			if (statusOfEnableReferralManagement) {
 				System.out.println("Referral Management is Already Selected");
-				TestListener.infoMessage("Referral Management is Already Selected");
+				//TestListener.infoMessage("Referral Management is Already Selected");
 			} else {
 				labelEnableReferralManagement.click();
 				statusOfEnableReferralManagement=labelEnableReferralManagement.isSelected();
 				System.out.println("Enabling Referral Management and now its checked now");
 				System.out.println("Status of Referral Management "+statusOfEnableReferralManagement);
-				TestListener.infoMessage("Enabling Referral Management and now its checked now");
-				TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
+				//TestListener.infoMessage("Enabling Referral Management and now its checked now");
+				//TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
 			}
 		}
 		else {
 			System.out.println("Care Coordination is Not Selected");
-			TestListener.infoMessage("Care Coordination is Not Selected");
-			TestListener.infoMessage("Enabling Care Coordination and now its checked now");
+			//TestListener.infoMessage("Care Coordination is Not Selected");
+			//TestListener.infoMessage("Enabling Care Coordination and now its checked now");
 			labelEnableCareCoordination.click();
 			statusOfEnableCareCoordination=labelEnableCareCoordination.isSelected();
 			System.out.println("Status of Care-Coordination "+statusOfEnableCareCoordination);
-			TestListener.infoMessage("Status of Care-Coordination "+statusOfEnableCareCoordination);
+			//TestListener.infoMessage("Status of Care-Coordination "+statusOfEnableCareCoordination);
 			wait.until(ExpectedConditions.elementToBeClickable(labelEnableReferralManagement));
-			TestListener.infoMessage("Referral Management is Not Selected");
-			TestListener.infoMessage("Enabling Referral Management and now its checked now");
+			//TestListener.infoMessage("Referral Management is Not Selected");
+			//TestListener.infoMessage("Enabling Referral Management and now its checked now");
 			labelEnableReferralManagement.click();
 			statusOfEnableReferralManagement=labelEnableReferralManagement.isSelected();
 			System.out.println("Status of Referral Management "+statusOfEnableReferralManagement);
-			TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
+			//TestListener.infoMessage("Status of Referral Management "+statusOfEnableReferralManagement);
 		}
 		buttonUpdateCustodian.click();
 		wait.until(ExpectedConditions.visibilityOf(confrimationMessage));
@@ -2027,12 +2027,12 @@ public class CreateRequest extends BrowserConfiguration {
 		System.out.println("Text of Card is "+tempReferAPatientCard);
 		if (tempReferAPatientCard.contains("Coming Soon")) {
 			System.out.println("Referral Management is not enabled");
-			TestListener.infoMessage("Referral Management is not enabled");
+			//TestListener.infoMessage("Referral Management is not enabled");
 			flag=false;
 		} 	
 		else {
 			System.out.println("Referral Management is enabled... You can Start Refer");
-			TestListener.infoMessage("Referral Management is enabled... You can Start Refer");
+			//TestListener.infoMessage("Referral Management is enabled... You can Start Refer");
 			flag=true;
 		}
 		return flag;
@@ -2050,26 +2050,26 @@ public class CreateRequest extends BrowserConfiguration {
 			inputReferFirstNameCareCoordination.sendKeys(referFirstName);
 			inputReferLastNameNameCareCoordination.sendKeys(referLastName);
 			System.out.println("First Name of Refer is "+referFirstName+" and Last Name of Refer is "+referLastName);
-			TestListener.infoMessage("First Name of Refer is "+referFirstName+" and Last Name of Refer is "+referLastName);
-			TestListener.addDynamicScreenshotInReport("referName");
+			//TestListener.infoMessage("First Name of Refer is "+referFirstName+" and Last Name of Refer is "+referLastName);
+			//TestListener.addDynamicScreenshotInReport("referName");
 			buttonContinueButtonOnPatientDetails.click();
 			wait.until(ExpectedConditions.visibilityOf(inputReferPatientDateOfBirth));
 			inputReferPatientDateOfBirth.sendKeys("01011991");
-			TestListener.infoMessage("Entering the date of birth");
-			TestListener.addDynamicScreenshotInReport("dateofbirth");
+			//TestListener.infoMessage("Entering the date of birth");
+			//TestListener.addDynamicScreenshotInReport("dateofbirth");
 			buttonContinueButtonOnDateOfBirthDetails.click();
 			wait.until(ExpectedConditions.visibilityOf(inputReferSSNCareCoordination));
 			inputReferSSNCareCoordination.sendKeys("1234567890");
-			TestListener.infoMessage("Entering the SSN");
-			TestListener.addDynamicScreenshotInReport("ssn");
+			//TestListener.infoMessage("Entering the SSN");
+			//TestListener.addDynamicScreenshotInReport("ssn");
 			buttonContinueButtonSSNDetails.click();
 			wait.until(ExpectedConditions.visibilityOf(inputReferPhoneNumber));
 			inputReferPhoneNumber.sendKeys("1234567890");
 			inputReferEmailId.sendKeys(referEmailId);
-			TestListener.infoMessage("Entering the Phone Number and Email Id");
+			//TestListener.infoMessage("Entering the Phone Number and Email Id");
 			System.out.println("Email id of the Refer Email:- "+referEmailId);
-			TestListener.infoMessage("Email id of the Refer Email:- "+referEmailId);
-			TestListener.addDynamicScreenshotInReport("contactDetails");		
+			//TestListener.infoMessage("Email id of the Refer Email:- "+referEmailId);
+			//TestListener.addDynamicScreenshotInReport("contactDetails");		
 			buttonContinueButtonContactDetails.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonNearByReferal));
 			String getNearByValue=buttonNearByReferal.getAttribute("class");
@@ -2083,16 +2083,16 @@ public class CreateRequest extends BrowserConfiguration {
 			TestUtil.hardWait(3);
 			selectTheSearchResult.click();
 			System.out.println("Selecting the provider Name "+providerName);
-			TestListener.infoMessage("Selecting the provider Name"+providerName);
-			TestListener.addDynamicScreenshotInReport("selectingofprovider");				
+			//TestListener.infoMessage("Selecting the provider Name"+providerName);
+			//TestListener.addDynamicScreenshotInReport("selectingofprovider");				
 			buttonContinueButtonSelectingProvider.click();
 			TestUtil.hardWait(3);
 			//wait.until(ExpectedConditions.elementToBeClickable(uploadMedicalFile));
 			//uploadMedicalFile.click();
 			js.executeScript("arguments[0].click();", uploadMedicalFile);
 			System.out.println("Uploading Medical File");
-			TestListener.infoMessage("Uploading Medical File");
-			TestListener.addDynamicScreenshotInReport("uploadingMedicalFile");	
+			//TestListener.infoMessage("Uploading Medical File");
+			//TestListener.addDynamicScreenshotInReport("uploadingMedicalFile");	
 			TestUtil.hardWait(5);
 			try {
 				Runtime.getRuntime()
@@ -2102,8 +2102,8 @@ public class CreateRequest extends BrowserConfiguration {
 			}
 			TestUtil.hardWait(5);
 			buttonContinueButtonUploadingFile.click();
-			TestListener.infoMessage("Uploaded Medical File");
-			TestListener.addDynamicScreenshotInReport("uploadedMedicalFile");	
+			//TestListener.infoMessage("Uploaded Medical File");
+			//TestListener.addDynamicScreenshotInReport("uploadedMedicalFile");	
 			TestUtil.hardWait(5);
 			wait.until(ExpectedConditions.elementToBeClickable(buttonSkipAppointment));
 			buttonSkipAppointment.click();
@@ -2113,22 +2113,22 @@ public class CreateRequest extends BrowserConfiguration {
 			checkboxBillingRequestReturnRecords.click();
 			textareaComments.sendKeys("Testing");
 			System.out.println("Request Return Records");
-			TestListener.infoMessage("Request Return Records");
-			TestListener.addDynamicScreenshotInReport("uploadedMedicalFile");	
+			//TestListener.infoMessage("Request Return Records");
+			//TestListener.addDynamicScreenshotInReport("uploadedMedicalFile");	
 			buttonVerifyReferralDetails.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonSubmitReferral));
-			TestListener.infoMessage("Final review Of Request");
-			TestListener.addDynamicScreenshotInReport("ReviewOfRequest");	
+			//TestListener.infoMessage("Final review Of Request");
+			//TestListener.addDynamicScreenshotInReport("ReviewOfRequest");	
 			buttonSubmitReferral.click();
 			wait.until(ExpectedConditions.elementToBeClickable(buttonFinalSubmitReferral));
-			TestListener.infoMessage("Final Submit Review Button");
-			TestListener.addDynamicScreenshotInReport("FinalSubmitButtonReview");	
+			//TestListener.infoMessage("Final Submit Review Button");
+			//TestListener.addDynamicScreenshotInReport("FinalSubmitButtonReview");	
 			buttonFinalSubmitReferral.click();
 			wait.until(ExpectedConditions.elementToBeClickable(refernceNumber));
 			String tempReferenceNumber=refernceNumber.getText();
 			System.out.println("Refernce Number:- "+tempReferenceNumber);
-			TestListener.infoMessage("Refernce Number:- "+tempReferenceNumber);
-			TestListener.addDynamicScreenshotInReport("refernceNumberAfterSubmit");	
+			//TestListener.infoMessage("Refernce Number:- "+tempReferenceNumber);
+			//TestListener.addDynamicScreenshotInReport("refernceNumberAfterSubmit");	
 			linkOfReferralStatus.click();	
 		} catch (Exception e) {
 			e.printStackTrace();

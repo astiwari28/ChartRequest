@@ -25,8 +25,8 @@ public class GlobalVariables {
 	
 
 	//Production Credentials
-	public static final String prodAdminEmail = "jafar.raza+req@full-cycle.com";
-	public static final String prodAdminPassword = "SyedJafar7@";
+	public static final String prodAdminEmail = "hitesh.patil@chartrequest.com";
+	public static final String prodAdminPassword = "EMR-Agnostic Referral & Care Coordination";
 	public static final String productionUrl = "https://app.chartrequest.com/";
 	
 	public static final String productionHostName = "localhost.aptible.in";
