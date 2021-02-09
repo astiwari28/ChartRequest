@@ -35,9 +35,9 @@ public class LoginPageTestcase extends BrowserConfiguration {
 		loginpage = new LoginPage();
 		signUpPage = new SignUpPage();
 		String url = driver.getCurrentUrl();
-		if (url.contains("staging")) {
+		/*if (url.contains("staging")) {
 			signUpPage.openApplicationURL();
-		}
+		}*/
 	}
 
 	@Test

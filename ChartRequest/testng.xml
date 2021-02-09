@@ -11,49 +11,30 @@
 				/> <class name="com.ChartRequest.TestCases.CutodianStatementTestcasesRestructure" 
 				/> <class name="com.ChartRequest.TestCases.SignUpPageTestCases" /> -->
 			<class name="com.ChartRequest.TestCases.LoginPageTestcase" />
-			<class name="com.ChartRequest.TestCases.CreateRequestTestcases" />
+				<!-- <class name="com.ChartRequest.TestCases.CreateRequestTestcases" />
 			<class name="com.ChartRequest.TestCases.SearchPageTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.MessagesTestCaseNavigationPaneTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.MyAccountNavigationPaneTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.SetupAndPolicyPageTestcases" />
-			<class
-				name="com.ChartRequest.TestCases.LandingAndViewEditUsersTestcases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminPermissionPageTestcases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminServicePageTestCases" />
+			<class name="com.ChartRequest.TestCases.MessagesTestCaseNavigationPaneTestCases" />
+			<class name="com.ChartRequest.TestCases.MyAccountNavigationPaneTestCases" />
+			<class name="com.ChartRequest.TestCases.SetupAndPolicyPageTestcases" />
+			<class name="com.ChartRequest.TestCases.LandingAndViewEditUsersTestcases" />
+			<class name="com.ChartRequest.TestCases.AdminPermissionPageTestcases" />
+			<class name="com.ChartRequest.TestCases.AdminServicePageTestCases" />
 			<class name="com.ChartRequest.TestCases.CSAHomePageTestCases" />
 			<class name="com.ChartRequest.TestCases.ExecutivePageTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.SetupAndPolicyPageTestcases" />
-			<class
-				name="com.ChartRequest.TestCases.UserRoleAndPermissionTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminEnterpriseResourcesTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminTeamAssignmentPageTestCase" />
-			<class
-				name="com.ChartRequest.TestCases.AdminTeamLeaderHomePageTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminScheduleManagementTestCase" />
-			<class
-				name="com.ChartRequest.TestCases.AdminFaxQueuePageTestcase" />
-			<class
-				name="com.ChartRequest.TestCases.AdminBlockedFaxNumberPageTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.ClinicalReviewerRequestAssignmentTestCase" />
-			<class
-				name="com.ChartRequest.TestCases.EMRCredentialsPageTestCases" />
-			<class
-				name="com.ChartRequest.TestCases.AdminStatementPageTestCase" />
-			<class
-				name="com.ChartRequest.TestCases.AdminDashboardPageTestCase" />
-			<!-- <class name="com.ChartRequest.Statement.CutodianStatementTestcasesRestructure" 
-				/> <class name="com.ChartRequest.Statement.CutodianStatementTestcasesRestructure2" 
-				/> -->
+			<class name="com.ChartRequest.TestCases.SetupAndPolicyPageTestcases" />
+			<class name="com.ChartRequest.TestCases.UserRoleAndPermissionTestCases" />
+			<class name="com.ChartRequest.TestCases.AdminEnterpriseResourcesTestCases" />
+			<class name="com.ChartRequest.TestCases.AdminTeamAssignmentPageTestCase" />
+			<class name="com.ChartRequest.TestCases.AdminTeamLeaderHomePageTestCases" />
+			<class name="com.ChartRequest.TestCases.AdminScheduleManagementTestCase" />
+			<class name="com.ChartRequest.TestCases.AdminFaxQueuePageTestcase" />
+			<class name="com.ChartRequest.TestCases.AdminBlockedFaxNumberPageTestCases" />
+			<class name="com.ChartRequest.TestCases.ClinicalReviewerRequestAssignmentTestCase" />
+			<class name="com.ChartRequest.TestCases.EMRCredentialsPageTestCases" />
+			<class name="com.ChartRequest.TestCases.AdminStatementPageTestCase" />
+			<class name="com.ChartRequest.TestCases.AdminDashboardPageTestCase" />
+		<class name="com.ChartRequest.Statement.CutodianStatementTestcasesRestructure" /> 
+			<class name="com.ChartRequest.Statement.CutodianStatementTestcasesRestructure2" /> -->
 
 		</classes>
 	</test>
