@@ -9,10 +9,10 @@
 		<classes>
 			<!--<class name="com.ChartRequest.TestCases.CutodianStatementTestcasesRestructureCopy" 
 				/> <class name="com.ChartRequest.TestCases.CutodianStatementTestcasesRestructure" 
-				/> <class name="com.ChartRequest.TestCases.SignUpPageTestCases" /> -->
-			<class name="com.ChartRequest.TestCases.LoginPageTestcase" />
-				 <!--<class name="com.ChartRequest.TestCases.CreateRequestTestcases" />
-			<class name="com.ChartRequest.TestCases.SearchPageTestCases" />
+				/> <class name="com.ChartRequest.TestCases.SignUpPageTestCases" /> 
+			<class name="com.ChartRequest.TestCases.LoginPageTestcase" />-->
+				 <class name="com.ChartRequest.TestCases.CreateRequestTestcases" />
+			<!--<class name="com.ChartRequest.TestCases.SearchPageTestCases" />
 			<class name="com.ChartRequest.TestCases.MessagesTestCaseNavigationPaneTestCases" />
 			<class name="com.ChartRequest.TestCases.MyAccountNavigationPaneTestCases" />
 			<class name="com.ChartRequest.TestCases.SetupAndPolicyPageTestcases" />
